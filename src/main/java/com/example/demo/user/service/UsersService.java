@@ -8,4 +8,6 @@ public interface UsersService {
     Boolean emailExist(String email);
 
     int insert(Users users);
+
+    Users selectByPrimaryKey(Long userId);
 }

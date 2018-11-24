@@ -51,4 +51,12 @@ public class UsersImpl implements UsersService{
         users.setPassword(SHA2.SHA256(users.getPassword()));
         return usersMapper.insertSelective(users);
     }
+
+    @Override
+    public Users selectByPrimaryKey(Long usersId){
+        Users users = usersMapper.selectByPrimaryKey(usersId);
+        users.setPassword(null);
+        return users;
+    }
+
 }

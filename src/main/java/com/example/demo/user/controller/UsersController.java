@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -58,6 +60,22 @@ public class UsersController extends BaseController{
                     msg.put("msg","失败");
                 }
             }
+        }catch (Exception e){
+            msg.put("code","0");
+            msg.put("msg",e);
+        }
+        return msg;
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public Map<String, Object> getUser (HttpServletRequest request){
+        msg.clear();
+        Long usersId=Long.parseLong(request.getAttribute("userId").toString());
+        try{
+            Users users = usersService.selectByPrimaryKey(usersId);
+            msg.put("code","1");
+            msg.put("msg","成功");
+            msg.put("users",users);
         }catch (Exception e){
             msg.put("code","0");
             msg.put("msg",e);
