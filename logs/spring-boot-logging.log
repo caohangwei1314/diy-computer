@@ -1,0 +1,207 @@
+2018-11-24 19:12:47.012  INFO 11940 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 11940 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:12:47.016  INFO 11940 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:12:47.063  INFO 11940 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1534f01b: startup date [Sat Nov 24 19:12:47 CST 2018]; root of context hierarchy
+2018-11-24 19:12:49.003  INFO 11940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:12:49.031  INFO 11940 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:12:49.031  INFO 11940 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:12:49.050  INFO 11940 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:12:49.050  INFO 11940 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:12:49.050  INFO 11940 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:12:50.094  INFO 11940 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:12:50.294  INFO 11940 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:12:50.294  INFO 11940 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3231 ms
+2018-11-24 19:12:50.465  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:12:50.470  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:12:50.471  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:12:50.471  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:12:50.472  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:12:50.472  INFO 11940 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:12:51.085  INFO 11940 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:12:51.264  INFO 11940 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1534f01b: startup date [Sat Nov 24 19:12:47 CST 2018]; root of context hierarchy
+2018-11-24 19:12:51.334  INFO 11940 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:12:51.336  INFO 11940 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:12:51.338  INFO 11940 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:12:51.339  INFO 11940 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:12:51.360  INFO 11940 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:12:51.361  INFO 11940 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:12:51.741  INFO 11940 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:12:51.743  INFO 11940 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:12:51.747  INFO 11940 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:12:51.782  INFO 11940 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:12:51.786  INFO 11940 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 5.284 seconds (JVM running for 9.014)
+2018-11-24 19:18:56.757  INFO 7724 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 7724 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:18:56.760  INFO 7724 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:18:56.818  INFO 7724 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@49d904ec: startup date [Sat Nov 24 19:18:56 CST 2018]; root of context hierarchy
+2018-11-24 19:18:58.276  INFO 7724 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:18:58.298  INFO 7724 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:18:58.298  INFO 7724 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:18:58.302  INFO 7724 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:18:58.302  INFO 7724 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:18:58.302  INFO 7724 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:18:59.328  INFO 7724 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:18:59.425  INFO 7724 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:18:59.425  INFO 7724 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2607 ms
+2018-11-24 19:18:59.553  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:18:59.557  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:18:59.558  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:18:59.558  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:18:59.558  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:18:59.558  INFO 7724 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:18:59.906  INFO 7724 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:19:00.105  INFO 7724 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@49d904ec: startup date [Sat Nov 24 19:18:56 CST 2018]; root of context hierarchy
+2018-11-24 19:19:00.154  INFO 7724 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:19:00.159  INFO 7724 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:19:00.162  INFO 7724 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:19:00.163  INFO 7724 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:19:00.192  INFO 7724 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:19:00.192  INFO 7724 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:19:00.557  INFO 7724 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:19:00.558  INFO 7724 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:19:00.563  INFO 7724 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:19:00.595  INFO 7724 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:19:00.599  INFO 7724 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.481 seconds (JVM running for 5.418)
+2018-11-24 19:19:59.757  INFO 7724 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:19:59.757  INFO 7724 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:19:59.780  INFO 7724 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-11-24 19:21:22.038  INFO 5980 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 5980 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:21:22.041  INFO 5980 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:21:22.110  INFO 5980 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b0b0854: startup date [Sat Nov 24 19:21:22 CST 2018]; root of context hierarchy
+2018-11-24 19:21:23.948  INFO 5980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:21:23.971  INFO 5980 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:21:23.971  INFO 5980 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:21:23.975  INFO 5980 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:21:23.975  INFO 5980 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:21:23.975  INFO 5980 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:21:24.999  INFO 5980 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:21:25.082  INFO 5980 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:21:25.082  INFO 5980 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2972 ms
+2018-11-24 19:21:25.199  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:21:25.204  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:21:25.205  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:21:25.205  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:21:25.206  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:21:25.206  INFO 5980 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:21:25.575  INFO 5980 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:25.758  INFO 5980 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b0b0854: startup date [Sat Nov 24 19:21:22 CST 2018]; root of context hierarchy
+2018-11-24 19:21:25.817  INFO 5980 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:21:25.818  INFO 5980 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:21:25.821  INFO 5980 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:21:25.822  INFO 5980 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:21:25.842  INFO 5980 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:25.842  INFO 5980 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:26.177  INFO 5980 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:21:26.178  INFO 5980 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:21:26.182  INFO 5980 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:21:26.216  INFO 5980 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:21:26.221  INFO 5980 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 4.853 seconds (JVM running for 5.788)
+2018-11-24 19:21:31.904  INFO 5980 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:21:31.904  INFO 5980 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:21:31.927  INFO 5980 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 22 ms
+2018-11-24 19:21:40.785  INFO 1676 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 1676 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:21:40.788  INFO 1676 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:21:40.857  INFO 1676 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@68d279ec: startup date [Sat Nov 24 19:21:40 CST 2018]; root of context hierarchy
+2018-11-24 19:21:42.773  INFO 1676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:21:42.800  INFO 1676 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:21:42.801  INFO 1676 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:21:42.807  INFO 1676 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:21:42.807  INFO 1676 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:21:42.807  INFO 1676 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:21:43.852  INFO 1676 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:21:43.996  INFO 1676 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:21:43.996  INFO 1676 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3139 ms
+2018-11-24 19:21:44.201  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:21:44.208  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:21:44.208  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:21:44.208  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:21:44.209  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:21:44.209  INFO 1676 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:21:44.859  INFO 1676 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:45.177  INFO 1676 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@68d279ec: startup date [Sat Nov 24 19:21:40 CST 2018]; root of context hierarchy
+2018-11-24 19:21:45.286  INFO 1676 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:21:45.288  INFO 1676 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:21:45.290  INFO 1676 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:21:45.291  INFO 1676 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:21:45.335  INFO 1676 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:45.335  INFO 1676 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:21:45.808  INFO 1676 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:21:45.810  INFO 1676 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:21:45.816  INFO 1676 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:21:45.860  INFO 1676 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:21:45.866  INFO 1676 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 5.65 seconds (JVM running for 8.107)
+2018-11-24 19:23:19.077  INFO 1676 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:23:19.078  INFO 1676 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:23:19.110  INFO 1676 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2018-11-24 19:24:17.219  INFO 7988 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 7988 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:24:17.222  INFO 7988 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:24:17.296  INFO 7988 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@73a8da0f: startup date [Sat Nov 24 19:24:17 CST 2018]; root of context hierarchy
+2018-11-24 19:24:18.840  INFO 7988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:24:18.866  INFO 7988 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:24:18.866  INFO 7988 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:24:18.871  INFO 7988 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:24:18.871  INFO 7988 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:24:18.871  INFO 7988 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:24:19.920  INFO 7988 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:24:20.012  INFO 7988 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:24:20.013  INFO 7988 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2717 ms
+2018-11-24 19:24:20.186  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:24:20.192  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:24:20.193  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:24:20.193  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:24:20.193  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:24:20.193  INFO 7988 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:24:20.689  INFO 7988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:24:20.916  INFO 7988 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@73a8da0f: startup date [Sat Nov 24 19:24:17 CST 2018]; root of context hierarchy
+2018-11-24 19:24:21.487  INFO 7988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:24:21.489  INFO 7988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:24:21.498  INFO 7988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:24:21.500  INFO 7988 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:24:21.548  INFO 7988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:24:21.548  INFO 7988 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:24:21.989  INFO 7988 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:24:21.992  INFO 7988 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:24:21.999  INFO 7988 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:24:22.078  INFO 7988 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:24:22.088  INFO 7988 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 5.975 seconds (JVM running for 7.484)
+2018-11-24 19:24:27.949  INFO 7988 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:24:27.949  INFO 7988 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:24:27.978  INFO 7988 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 29 ms
+2018-11-24 19:24:28.412  WARN 7988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2018-11-24 19:24:28.412  INFO 7988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-24 19:24:29.020  INFO 7988 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-24 19:29:10.007  INFO 12692 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication on DESKTOP-N2TRET3 with PID 12692 (E:\diy-computer\target\classes started by PinuoC in E:\diy-computer)
+2018-11-24 19:29:10.082  INFO 12692 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2018-11-24 19:29:10.177  INFO 12692 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f107c50: startup date [Sat Nov 24 19:29:10 CST 2018]; root of context hierarchy
+2018-11-24 19:29:11.768  INFO 12692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-24 19:29:11.800  INFO 12692 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-24 19:29:11.800  INFO 12692 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-11-24 19:29:11.806  INFO 12692 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3].
+2018-11-24 19:29:11.806  INFO 12692 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2018-11-24 19:29:11.806  INFO 12692 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2018-11-24 19:29:12.845  INFO 12692 --- [localhost-startStop-1] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018]
+2018-11-24 19:29:12.934  INFO 12692 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-24 19:29:12.934  INFO 12692 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2758 ms
+2018-11-24 19:29:13.099  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-24 19:29:13.104  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-24 19:29:13.104  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-24 19:29:13.104  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-11-24 19:29:13.104  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-24 19:29:13.105  INFO 12692 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'corsFilter' to: [/*]
+2018-11-24 19:29:14.311  INFO 12692 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:29:14.567  INFO 12692 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@f107c50: startup date [Sat Nov 24 19:29:10 CST 2018]; root of context hierarchy
+2018-11-24 19:29:14.688  INFO 12692 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/login],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.login(com.example.demo.user.model.Users)
+2018-11-24 19:29:14.690  INFO 12692 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/users/register],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> com.example.demo.user.controller.UsersController.createUser(com.example.demo.user.model.Users)
+2018-11-24 19:29:14.693  INFO 12692 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-11-24 19:29:14.696  INFO 12692 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-11-24 19:29:14.873  INFO 12692 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:29:14.873  INFO 12692 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-11-24 19:29:15.190  INFO 12692 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-11-24 19:29:15.195  INFO 12692 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'dataSource' has been autodetected for JMX exposure
+2018-11-24 19:29:15.204  INFO 12692 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'dataSource': registering with JMX server as MBean [com.zaxxer.hikari:name=dataSource,type=HikariDataSource]
+2018-11-24 19:29:15.286  INFO 12692 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-24 19:29:15.295  INFO 12692 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 6.345 seconds (JVM running for 7.687)
+2018-11-24 19:29:18.158  INFO 12692 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-11-24 19:29:18.158  INFO 12692 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2018-11-24 19:29:18.190  INFO 12692 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 32 ms
+2018-11-24 19:29:20.949  WARN 12692 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2018-11-24 19:29:20.949  INFO 12692 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-24 19:29:21.413  INFO 12692 --- [http-nio-8080-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.

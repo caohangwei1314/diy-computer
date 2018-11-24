@@ -1,26 +1,29 @@
-package com.example.model;
+package com.example.demo.user.model;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
- * user
  * @author 
  */
-public class User implements Serializable {
+public class Users implements Serializable {
     private Long pkId;
-
-    private String name;
-
-    private String password;
-
-    private String ukPhone;
 
     private String email;
 
-    private String affiliationUnit;
+    private String password;
+
+    private String name;
+
+    private String ukPhone;
+
+    private String idCard;
+
+    private String actualName;
 
     private String personalProfile;
+
+    private String image;
 
     private Date gmtCreate;
 
@@ -36,12 +39,12 @@ public class User implements Serializable {
         this.pkId = pkId;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -52,6 +55,14 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getUkPhone() {
         return ukPhone;
     }
@@ -60,20 +71,20 @@ public class User implements Serializable {
         this.ukPhone = ukPhone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 
-    public String getAffiliationUnit() {
-        return affiliationUnit;
+    public String getActualName() {
+        return actualName;
     }
 
-    public void setAffiliationUnit(String affiliationUnit) {
-        this.affiliationUnit = affiliationUnit;
+    public void setActualName(String actualName) {
+        this.actualName = actualName;
     }
 
     public String getPersonalProfile() {
@@ -82,6 +93,14 @@ public class User implements Serializable {
 
     public void setPersonalProfile(String personalProfile) {
         this.personalProfile = personalProfile;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Date getGmtCreate() {
@@ -111,14 +130,16 @@ public class User implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        User other = (User) that;
+        Users other = (Users) that;
         return (this.getPkId() == null ? other.getPkId() == null : this.getPkId().equals(other.getPkId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getUkPhone() == null ? other.getUkPhone() == null : this.getUkPhone().equals(other.getUkPhone()))
             && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
-            && (this.getAffiliationUnit() == null ? other.getAffiliationUnit() == null : this.getAffiliationUnit().equals(other.getAffiliationUnit()))
+            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getUkPhone() == null ? other.getUkPhone() == null : this.getUkPhone().equals(other.getUkPhone()))
+            && (this.getIdCard() == null ? other.getIdCard() == null : this.getIdCard().equals(other.getIdCard()))
+            && (this.getActualName() == null ? other.getActualName() == null : this.getActualName().equals(other.getActualName()))
             && (this.getPersonalProfile() == null ? other.getPersonalProfile() == null : this.getPersonalProfile().equals(other.getPersonalProfile()))
+            && (this.getImage() == null ? other.getImage() == null : this.getImage().equals(other.getImage()))
             && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()));
     }
@@ -128,12 +149,14 @@ public class User implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getPkId() == null) ? 0 : getPkId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
-        result = prime * result + ((getUkPhone() == null) ? 0 : getUkPhone().hashCode());
         result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
-        result = prime * result + ((getAffiliationUnit() == null) ? 0 : getAffiliationUnit().hashCode());
+        result = prime * result + ((getPassword() == null) ? 0 : getPassword().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getUkPhone() == null) ? 0 : getUkPhone().hashCode());
+        result = prime * result + ((getIdCard() == null) ? 0 : getIdCard().hashCode());
+        result = prime * result + ((getActualName() == null) ? 0 : getActualName().hashCode());
         result = prime * result + ((getPersonalProfile() == null) ? 0 : getPersonalProfile().hashCode());
+        result = prime * result + ((getImage() == null) ? 0 : getImage().hashCode());
         result = prime * result + ((getGmtCreate() == null) ? 0 : getGmtCreate().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         return result;
@@ -146,12 +169,14 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", pkId=").append(pkId);
-        sb.append(", name=").append(name);
-        sb.append(", password=").append(password);
-        sb.append(", ukPhone=").append(ukPhone);
         sb.append(", email=").append(email);
-        sb.append(", affiliationUnit=").append(affiliationUnit);
+        sb.append(", password=").append(password);
+        sb.append(", name=").append(name);
+        sb.append(", ukPhone=").append(ukPhone);
+        sb.append(", idCard=").append(idCard);
+        sb.append(", actualName=").append(actualName);
         sb.append(", personalProfile=").append(personalProfile);
+        sb.append(", image=").append(image);
         sb.append(", gmtCreate=").append(gmtCreate);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", serialVersionUID=").append(serialVersionUID);
