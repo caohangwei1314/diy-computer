@@ -44,12 +44,16 @@ public class UsersImpl implements UsersService{
     }
 
     @Override
-    public int insert(Users users){
+    public Users insert(Users users){
         Date date = new Date();
         users.setGmtCreate(date);
         users.setGmtModified(date);
         users.setPassword(SHA2.SHA256(users.getPassword()));
-        return usersMapper.insertSelective(users);
+        if(usersMapper.insertSelective(users)==1){
+            return users;
+        }else {
+            return null;
+        }
     }
 
     @Override
@@ -57,6 +61,17 @@ public class UsersImpl implements UsersService{
         Users users = usersMapper.selectByPrimaryKey(usersId);
         users.setPassword(null);
         return users;
+    }
+
+    @Override
+    public Users updateByPrimaryKeySelective(Users users){
+        users.setGmtModified(new Date());
+        if(usersMapper.updateByPrimaryKeySelective(users)>0){
+            Users findUser =  usersMapper.selectByPrimaryKey(users.getPkId());
+            return findUser;
+        }else{
+            return null;
+        }
     }
 
 }

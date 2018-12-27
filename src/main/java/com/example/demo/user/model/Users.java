@@ -1,5 +1,7 @@
 package com.example.demo.user.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -25,8 +27,10 @@ public class Users implements Serializable {
 
     private String image;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     private Date gmtCreate;
 
+    @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     private Date gmtModified;
 
     private static final long serialVersionUID = 1L;
