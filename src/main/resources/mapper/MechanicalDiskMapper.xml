@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.product.mapper.MechanicalDiskMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.product.model.MechanicalDisk">
+    <id column="pk_id" jdbcType="BIGINT" property="pkId" />
+    <result column="class_id" jdbcType="BIGINT" property="classId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="appropriate_type" jdbcType="VARCHAR" property="appropriateType" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="capacity" jdbcType="VARCHAR" property="capacity" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="single_capacity" jdbcType="VARCHAR" property="singleCapacity" />
+    <result column="cache" jdbcType="VARCHAR" property="cache" />
+    <result column="rotating_speed" jdbcType="VARCHAR" property="rotatingSpeed" />
+    <result column="interface_type" jdbcType="VARCHAR" property="interfaceType" />
+    <result column="interface_speed" jdbcType="VARCHAR" property="interfaceSpeed" />
+    <result column="external_rate" jdbcType="VARCHAR" property="externalRate" />
+    <result column="power" jdbcType="VARCHAR" property="power" />
+    <result column="noisey" jdbcType="VARCHAR" property="noisey" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pk_id, class_id, user_id, name, appropriate_type, size, capacity, number, single_capacity, 
+    cache, rotating_speed, interface_type, interface_speed, external_rate, power, noisey, 
+    score, image, price, gmt_create, gmt_modified
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.product.model.MechanicalDiskExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from mechanical_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mechanical_disk
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mechanical_disk
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.product.model.MechanicalDiskExample">
+    delete from mechanical_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.product.model.MechanicalDisk">
+    insert into mechanical_disk (pk_id, class_id, user_id, 
+      name, appropriate_type, size, 
+      capacity, number, single_capacity, 
+      cache, rotating_speed, interface_type, 
+      interface_speed, external_rate, power, 
+      noisey, score, image, 
+      price, gmt_create, gmt_modified
+      )
+    values (#{pkId,jdbcType=BIGINT}, #{classId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{appropriateType,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, 
+      #{capacity,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{singleCapacity,jdbcType=VARCHAR}, 
+      #{cache,jdbcType=VARCHAR}, #{rotatingSpeed,jdbcType=VARCHAR}, #{interfaceType,jdbcType=VARCHAR}, 
+      #{interfaceSpeed,jdbcType=VARCHAR}, #{externalRate,jdbcType=VARCHAR}, #{power,jdbcType=VARCHAR}, 
+      #{noisey,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.product.model.MechanicalDisk" useGeneratedKeys="true" keyProperty="pkId">
+    insert into mechanical_disk
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        pk_id,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="appropriateType != null">
+        appropriate_type,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="capacity != null">
+        capacity,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="singleCapacity != null">
+        single_capacity,
+      </if>
+      <if test="cache != null">
+        cache,
+      </if>
+      <if test="rotatingSpeed != null">
+        rotating_speed,
+      </if>
+      <if test="interfaceType != null">
+        interface_type,
+      </if>
+      <if test="interfaceSpeed != null">
+        interface_speed,
+      </if>
+      <if test="externalRate != null">
+        external_rate,
+      </if>
+      <if test="power != null">
+        power,
+      </if>
+      <if test="noisey != null">
+        noisey,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=BIGINT},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="appropriateType != null">
+        #{appropriateType,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        #{capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="singleCapacity != null">
+        #{singleCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="cache != null">
+        #{cache,jdbcType=VARCHAR},
+      </if>
+      <if test="rotatingSpeed != null">
+        #{rotatingSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceSpeed != null">
+        #{interfaceSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="externalRate != null">
+        #{externalRate,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="noisey != null">
+        #{noisey,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.product.model.MechanicalDiskExample" resultType="java.lang.Long">
+    select count(*) from mechanical_disk
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update mechanical_disk
+    <set>
+      <if test="record.pkId != null">
+        pk_id = #{record.pkId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.appropriateType != null">
+        appropriate_type = #{record.appropriateType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null">
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.capacity != null">
+        capacity = #{record.capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.number != null">
+        number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.singleCapacity != null">
+        single_capacity = #{record.singleCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cache != null">
+        cache = #{record.cache,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rotatingSpeed != null">
+        rotating_speed = #{record.rotatingSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interfaceType != null">
+        interface_type = #{record.interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.interfaceSpeed != null">
+        interface_speed = #{record.interfaceSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="record.externalRate != null">
+        external_rate = #{record.externalRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.power != null">
+        power = #{record.power,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noisey != null">
+        noisey = #{record.noisey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.image != null">
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update mechanical_disk
+    set pk_id = #{record.pkId,jdbcType=BIGINT},
+      class_id = #{record.classId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      appropriate_type = #{record.appropriateType,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR},
+      capacity = #{record.capacity,jdbcType=VARCHAR},
+      number = #{record.number,jdbcType=VARCHAR},
+      single_capacity = #{record.singleCapacity,jdbcType=VARCHAR},
+      cache = #{record.cache,jdbcType=VARCHAR},
+      rotating_speed = #{record.rotatingSpeed,jdbcType=VARCHAR},
+      interface_type = #{record.interfaceType,jdbcType=VARCHAR},
+      interface_speed = #{record.interfaceSpeed,jdbcType=VARCHAR},
+      external_rate = #{record.externalRate,jdbcType=VARCHAR},
+      power = #{record.power,jdbcType=VARCHAR},
+      noisey = #{record.noisey,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=INTEGER},
+      image = #{record.image,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.product.model.MechanicalDisk">
+    update mechanical_disk
+    <set>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="appropriateType != null">
+        appropriate_type = #{appropriateType,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="capacity != null">
+        capacity = #{capacity,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="singleCapacity != null">
+        single_capacity = #{singleCapacity,jdbcType=VARCHAR},
+      </if>
+      <if test="cache != null">
+        cache = #{cache,jdbcType=VARCHAR},
+      </if>
+      <if test="rotatingSpeed != null">
+        rotating_speed = #{rotatingSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceType != null">
+        interface_type = #{interfaceType,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceSpeed != null">
+        interface_speed = #{interfaceSpeed,jdbcType=VARCHAR},
+      </if>
+      <if test="externalRate != null">
+        external_rate = #{externalRate,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null">
+        power = #{power,jdbcType=VARCHAR},
+      </if>
+      <if test="noisey != null">
+        noisey = #{noisey,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.product.model.MechanicalDisk">
+    update mechanical_disk
+    set class_id = #{classId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      appropriate_type = #{appropriateType,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      capacity = #{capacity,jdbcType=VARCHAR},
+      number = #{number,jdbcType=VARCHAR},
+      single_capacity = #{singleCapacity,jdbcType=VARCHAR},
+      cache = #{cache,jdbcType=VARCHAR},
+      rotating_speed = #{rotatingSpeed,jdbcType=VARCHAR},
+      interface_type = #{interfaceType,jdbcType=VARCHAR},
+      interface_speed = #{interfaceSpeed,jdbcType=VARCHAR},
+      external_rate = #{externalRate,jdbcType=VARCHAR},
+      power = #{power,jdbcType=VARCHAR},
+      noisey = #{noisey,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+</mapper>

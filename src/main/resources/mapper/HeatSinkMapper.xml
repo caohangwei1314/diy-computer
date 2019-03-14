@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.product.mapper.HeatSinkMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.product.model.HeatSink">
+    <id column="pk_id" jdbcType="BIGINT" property="pkId" />
+    <result column="class_id" jdbcType="BIGINT" property="classId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="mothed" jdbcType="VARCHAR" property="mothed" />
+    <result column="scope" jdbcType="VARCHAR" property="scope" />
+    <result column="size" jdbcType="VARCHAR" property="size" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="temperature" jdbcType="VARCHAR" property="temperature" />
+    <result column="power_parameter" jdbcType="VARCHAR" property="powerParameter" />
+    <result column="input_power" jdbcType="VARCHAR" property="inputPower" />
+    <result column="life" jdbcType="VARCHAR" property="life" />
+    <result column="fan_size" jdbcType="VARCHAR" property="fanSize" />
+    <result column="bearing_type" jdbcType="VARCHAR" property="bearingType" />
+    <result column="max_revolution" jdbcType="VARCHAR" property="maxRevolution" />
+    <result column="revolution_description" jdbcType="VARCHAR" property="revolutionDescription" />
+    <result column="max_volume" jdbcType="VARCHAR" property="maxVolume" />
+    <result column="wind_pressure" jdbcType="VARCHAR" property="windPressure" />
+    <result column="noise" jdbcType="VARCHAR" property="noise" />
+    <result column="heat_pipes" jdbcType="VARCHAR" property="heatPipes" />
+    <result column="pipes_material" jdbcType="VARCHAR" property="pipesMaterial" />
+    <result column="score" jdbcType="INTEGER" property="score" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    pk_id, class_id, user_id, name, type, mothed, scope, size, weight, temperature, power_parameter, 
+    input_power, life, fan_size, bearing_type, max_revolution, revolution_description, 
+    max_volume, wind_pressure, noise, heat_pipes, pipes_material, score, image, price, 
+    gmt_create, gmt_modified
+  </sql>
+  <select id="selectByExample" parameterType="com.example.demo.product.model.HeatSinkExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from heat_sink
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from heat_sink
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from heat_sink
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.demo.product.model.HeatSinkExample">
+    delete from heat_sink
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.product.model.HeatSink">
+    insert into heat_sink (pk_id, class_id, user_id, 
+      name, type, mothed, 
+      scope, size, weight, 
+      temperature, power_parameter, input_power, 
+      life, fan_size, bearing_type, 
+      max_revolution, revolution_description, max_volume, 
+      wind_pressure, noise, heat_pipes, 
+      pipes_material, score, image, 
+      price, gmt_create, gmt_modified
+      )
+    values (#{pkId,jdbcType=BIGINT}, #{classId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{mothed,jdbcType=VARCHAR}, 
+      #{scope,jdbcType=VARCHAR}, #{size,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, 
+      #{temperature,jdbcType=VARCHAR}, #{powerParameter,jdbcType=VARCHAR}, #{inputPower,jdbcType=VARCHAR}, 
+      #{life,jdbcType=VARCHAR}, #{fanSize,jdbcType=VARCHAR}, #{bearingType,jdbcType=VARCHAR}, 
+      #{maxRevolution,jdbcType=VARCHAR}, #{revolutionDescription,jdbcType=VARCHAR}, #{maxVolume,jdbcType=VARCHAR}, 
+      #{windPressure,jdbcType=VARCHAR}, #{noise,jdbcType=VARCHAR}, #{heatPipes,jdbcType=VARCHAR}, 
+      #{pipesMaterial,jdbcType=VARCHAR}, #{score,jdbcType=INTEGER}, #{image,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.product.model.HeatSink" useGeneratedKeys="true" keyProperty="pkId">
+    insert into heat_sink
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        pk_id,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="mothed != null">
+        mothed,
+      </if>
+      <if test="scope != null">
+        scope,
+      </if>
+      <if test="size != null">
+        size,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="temperature != null">
+        temperature,
+      </if>
+      <if test="powerParameter != null">
+        power_parameter,
+      </if>
+      <if test="inputPower != null">
+        input_power,
+      </if>
+      <if test="life != null">
+        life,
+      </if>
+      <if test="fanSize != null">
+        fan_size,
+      </if>
+      <if test="bearingType != null">
+        bearing_type,
+      </if>
+      <if test="maxRevolution != null">
+        max_revolution,
+      </if>
+      <if test="revolutionDescription != null">
+        revolution_description,
+      </if>
+      <if test="maxVolume != null">
+        max_volume,
+      </if>
+      <if test="windPressure != null">
+        wind_pressure,
+      </if>
+      <if test="noise != null">
+        noise,
+      </if>
+      <if test="heatPipes != null">
+        heat_pipes,
+      </if>
+      <if test="pipesMaterial != null">
+        pipes_material,
+      </if>
+      <if test="score != null">
+        score,
+      </if>
+      <if test="image != null">
+        image,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=BIGINT},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mothed != null">
+        #{mothed,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="powerParameter != null">
+        #{powerParameter,jdbcType=VARCHAR},
+      </if>
+      <if test="inputPower != null">
+        #{inputPower,jdbcType=VARCHAR},
+      </if>
+      <if test="life != null">
+        #{life,jdbcType=VARCHAR},
+      </if>
+      <if test="fanSize != null">
+        #{fanSize,jdbcType=VARCHAR},
+      </if>
+      <if test="bearingType != null">
+        #{bearingType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxRevolution != null">
+        #{maxRevolution,jdbcType=VARCHAR},
+      </if>
+      <if test="revolutionDescription != null">
+        #{revolutionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="maxVolume != null">
+        #{maxVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="windPressure != null">
+        #{windPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="noise != null">
+        #{noise,jdbcType=VARCHAR},
+      </if>
+      <if test="heatPipes != null">
+        #{heatPipes,jdbcType=VARCHAR},
+      </if>
+      <if test="pipesMaterial != null">
+        #{pipesMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        #{score,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.demo.product.model.HeatSinkExample" resultType="java.lang.Long">
+    select count(*) from heat_sink
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update heat_sink
+    <set>
+      <if test="record.pkId != null">
+        pk_id = #{record.pkId,jdbcType=BIGINT},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=BIGINT},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=BIGINT},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mothed != null">
+        mothed = #{record.mothed,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scope != null">
+        scope = #{record.scope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.size != null">
+        size = #{record.size,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weight != null">
+        weight = #{record.weight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.temperature != null">
+        temperature = #{record.temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerParameter != null">
+        power_parameter = #{record.powerParameter,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inputPower != null">
+        input_power = #{record.inputPower,jdbcType=VARCHAR},
+      </if>
+      <if test="record.life != null">
+        life = #{record.life,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fanSize != null">
+        fan_size = #{record.fanSize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bearingType != null">
+        bearing_type = #{record.bearingType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxRevolution != null">
+        max_revolution = #{record.maxRevolution,jdbcType=VARCHAR},
+      </if>
+      <if test="record.revolutionDescription != null">
+        revolution_description = #{record.revolutionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.maxVolume != null">
+        max_volume = #{record.maxVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="record.windPressure != null">
+        wind_pressure = #{record.windPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.noise != null">
+        noise = #{record.noise,jdbcType=VARCHAR},
+      </if>
+      <if test="record.heatPipes != null">
+        heat_pipes = #{record.heatPipes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pipesMaterial != null">
+        pipes_material = #{record.pipesMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="record.score != null">
+        score = #{record.score,jdbcType=INTEGER},
+      </if>
+      <if test="record.image != null">
+        image = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.gmtCreate != null">
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gmtModified != null">
+        gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update heat_sink
+    set pk_id = #{record.pkId,jdbcType=BIGINT},
+      class_id = #{record.classId,jdbcType=BIGINT},
+      user_id = #{record.userId,jdbcType=BIGINT},
+      name = #{record.name,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=VARCHAR},
+      mothed = #{record.mothed,jdbcType=VARCHAR},
+      scope = #{record.scope,jdbcType=VARCHAR},
+      size = #{record.size,jdbcType=VARCHAR},
+      weight = #{record.weight,jdbcType=VARCHAR},
+      temperature = #{record.temperature,jdbcType=VARCHAR},
+      power_parameter = #{record.powerParameter,jdbcType=VARCHAR},
+      input_power = #{record.inputPower,jdbcType=VARCHAR},
+      life = #{record.life,jdbcType=VARCHAR},
+      fan_size = #{record.fanSize,jdbcType=VARCHAR},
+      bearing_type = #{record.bearingType,jdbcType=VARCHAR},
+      max_revolution = #{record.maxRevolution,jdbcType=VARCHAR},
+      revolution_description = #{record.revolutionDescription,jdbcType=VARCHAR},
+      max_volume = #{record.maxVolume,jdbcType=VARCHAR},
+      wind_pressure = #{record.windPressure,jdbcType=VARCHAR},
+      noise = #{record.noise,jdbcType=VARCHAR},
+      heat_pipes = #{record.heatPipes,jdbcType=VARCHAR},
+      pipes_material = #{record.pipesMaterial,jdbcType=VARCHAR},
+      score = #{record.score,jdbcType=INTEGER},
+      image = #{record.image,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.product.model.HeatSink">
+    update heat_sink
+    <set>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mothed != null">
+        mothed = #{mothed,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null">
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="size != null">
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="temperature != null">
+        temperature = #{temperature,jdbcType=VARCHAR},
+      </if>
+      <if test="powerParameter != null">
+        power_parameter = #{powerParameter,jdbcType=VARCHAR},
+      </if>
+      <if test="inputPower != null">
+        input_power = #{inputPower,jdbcType=VARCHAR},
+      </if>
+      <if test="life != null">
+        life = #{life,jdbcType=VARCHAR},
+      </if>
+      <if test="fanSize != null">
+        fan_size = #{fanSize,jdbcType=VARCHAR},
+      </if>
+      <if test="bearingType != null">
+        bearing_type = #{bearingType,jdbcType=VARCHAR},
+      </if>
+      <if test="maxRevolution != null">
+        max_revolution = #{maxRevolution,jdbcType=VARCHAR},
+      </if>
+      <if test="revolutionDescription != null">
+        revolution_description = #{revolutionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="maxVolume != null">
+        max_volume = #{maxVolume,jdbcType=VARCHAR},
+      </if>
+      <if test="windPressure != null">
+        wind_pressure = #{windPressure,jdbcType=VARCHAR},
+      </if>
+      <if test="noise != null">
+        noise = #{noise,jdbcType=VARCHAR},
+      </if>
+      <if test="heatPipes != null">
+        heat_pipes = #{heatPipes,jdbcType=VARCHAR},
+      </if>
+      <if test="pipesMaterial != null">
+        pipes_material = #{pipesMaterial,jdbcType=VARCHAR},
+      </if>
+      <if test="score != null">
+        score = #{score,jdbcType=INTEGER},
+      </if>
+      <if test="image != null">
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.product.model.HeatSink">
+    update heat_sink
+    set class_id = #{classId,jdbcType=BIGINT},
+      user_id = #{userId,jdbcType=BIGINT},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      mothed = #{mothed,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      size = #{size,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      temperature = #{temperature,jdbcType=VARCHAR},
+      power_parameter = #{powerParameter,jdbcType=VARCHAR},
+      input_power = #{inputPower,jdbcType=VARCHAR},
+      life = #{life,jdbcType=VARCHAR},
+      fan_size = #{fanSize,jdbcType=VARCHAR},
+      bearing_type = #{bearingType,jdbcType=VARCHAR},
+      max_revolution = #{maxRevolution,jdbcType=VARCHAR},
+      revolution_description = #{revolutionDescription,jdbcType=VARCHAR},
+      max_volume = #{maxVolume,jdbcType=VARCHAR},
+      wind_pressure = #{windPressure,jdbcType=VARCHAR},
+      noise = #{noise,jdbcType=VARCHAR},
+      heat_pipes = #{heatPipes,jdbcType=VARCHAR},
+      pipes_material = #{pipesMaterial,jdbcType=VARCHAR},
+      score = #{score,jdbcType=INTEGER},
+      image = #{image,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
+    where pk_id = #{pkId,jdbcType=BIGINT}
+  </update>
+</mapper>
