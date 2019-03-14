@@ -343,4 +343,22 @@
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
     where pk_id = #{pkId,jdbcType=BIGINT}
   </update>
+  <select id="selectByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from address
+    where 1=1
+    <if test="user_id!=null">
+      and user_id = #{user_id,jdbcType=BIGINT}
+    </if>
+    ORDER BY gmt_create
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
 </mapper>

@@ -1,10 +1,10 @@
-package com.example.demo.product.model;
+package com.example.demo.user.model;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ShoppingCartExample {
+public class CollectExample {
     protected String orderByClause;
 
     protected boolean distinct;
@@ -15,7 +15,7 @@ public class ShoppingCartExample {
 
     private Integer offset;
 
-    public ShoppingCartExample() {
+    public CollectExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -302,66 +302,6 @@ public class ShoppingCartExample {
 
         public Criteria andCommodityIdNotBetween(Long value1, Long value2) {
             addCriterion("commodity_id not between", value1, value2, "commodityId");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberIsNull() {
-            addCriterion("number is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberIsNotNull() {
-            addCriterion("number is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberEqualTo(Long value) {
-            addCriterion("number =", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberNotEqualTo(Long value) {
-            addCriterion("number <>", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberGreaterThan(Long value) {
-            addCriterion("number >", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberGreaterThanOrEqualTo(Long value) {
-            addCriterion("number >=", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberLessThan(Long value) {
-            addCriterion("number <", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberLessThanOrEqualTo(Long value) {
-            addCriterion("number <=", value, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberIn(List<Long> values) {
-            addCriterion("number in", values, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberNotIn(List<Long> values) {
-            addCriterion("number not in", values, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberBetween(Long value1, Long value2) {
-            addCriterion("number between", value1, value2, "number");
-            return (Criteria) this;
-        }
-
-        public Criteria andNumberNotBetween(Long value1, Long value2) {
-            addCriterion("number not between", value1, value2, "number");
             return (Criteria) this;
         }
 

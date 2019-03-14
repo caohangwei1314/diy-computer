@@ -2,6 +2,7 @@ package com.example.demo.user.controller;
 
 import com.example.demo.user.model.Orders;
 import com.example.demo.user.service.OrderService;
+import com.example.demo.user.service.UsersService;
 import com.example.demo.utils.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,21 +16,31 @@ public class OrderController extends BaseController{
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private UsersService usersService;
+
     @RequestMapping(method = RequestMethod.POST)
     public Map<String,Object> insert(@RequestBody Orders orders, HttpServletRequest request)
     {
         msg.clear();
         Long userId=Long.parseLong(request.getAttribute("userId").toString());
-        orders.setUserId(userId);
-        if(orderService.insert(orders)>0)
+        if(usersService.updateMoney(orders.getTotal(),userId)>0)
         {
-            msg.put("code",1);
-            msg.put("msg","成功");
+            orders.setUserId(userId);
+            if(orderService.insert(orders)>0)
+            {
+                msg.put("code",1);
+                msg.put("msg","成功");
+            }else{
+                msg.put("code",0);
+                msg.put("msg","失败");
+            }
+            return msg;
         }else{
-            msg.put("code",0);
-            msg.put("msg","失败");
+            msg.put("code","0");
+            msg.put("msg","余额不足");
+            return msg;
         }
-        return msg;
     }
 
     @RequestMapping(value = "/list",method = RequestMethod.POST)

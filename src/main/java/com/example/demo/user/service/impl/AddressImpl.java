@@ -35,7 +35,7 @@ public class AddressImpl implements AddressService {
         int count = (int) addressMapper.countByExample(addressExample);
         if(count>0){
             PageBean pageBean = new PageBean(page,count,limit);
-            List<Address> addressList=addressMapper.selectByExample(addressExample);
+            List<Address> addressList=addressMapper.selectByUserId(limit,pageBean.getStart(),userId);
             pageBean.setList(addressList);
             return pageBean;
         }else{

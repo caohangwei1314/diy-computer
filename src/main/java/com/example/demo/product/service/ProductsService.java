@@ -9,4 +9,6 @@ public interface ProductsService {
     Products selectByPrimaryKey(Long id);
 
     int delete(Long id,Long classId,Long productId);
+
+    Products selectByClassIdAndProductId(Long classId,Long productId);
 }

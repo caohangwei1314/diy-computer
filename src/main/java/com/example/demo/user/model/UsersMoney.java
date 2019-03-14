@@ -1,4 +1,4 @@
-package com.example.demo.product.model;
+package com.example.demo.user.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -9,14 +9,12 @@ import java.util.Date;
 /**
  * @author 
  */
-public class ShoppingCart implements Serializable {
-    private Long pkId;
+public class UsersMoney implements Serializable {
+    private Long id;
 
     private Long userId;
 
-    private Long commodityId;
-
-    private Long number;
+    private BigDecimal money;
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     private Date gmtCreate;
@@ -26,12 +24,12 @@ public class ShoppingCart implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Long getPkId() {
-        return pkId;
+    public Long getId() {
+        return id;
     }
 
-    public void setPkId(Long pkId) {
-        this.pkId = pkId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getUserId() {
@@ -42,20 +40,12 @@ public class ShoppingCart implements Serializable {
         this.userId = userId;
     }
 
-    public Long getCommodityId() {
-        return commodityId;
+    public BigDecimal getMoney() {
+        return money;
     }
 
-    public void setCommodityId(Long commodityId) {
-        this.commodityId = commodityId;
-    }
-
-    public Long getNumber() {
-        return number;
-    }
-
-    public void setNumber(Long number) {
-        this.number = number;
+    public void setMoney(BigDecimal money) {
+        this.money = money;
     }
 
     public Date getGmtCreate() {
@@ -85,11 +75,10 @@ public class ShoppingCart implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        ShoppingCart other = (ShoppingCart) that;
-        return (this.getPkId() == null ? other.getPkId() == null : this.getPkId().equals(other.getPkId()))
+        UsersMoney other = (UsersMoney) that;
+        return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getCommodityId() == null ? other.getCommodityId() == null : this.getCommodityId().equals(other.getCommodityId()))
-            && (this.getNumber() == null ? other.getNumber() == null : this.getNumber().equals(other.getNumber()))
+            && (this.getMoney() == null ? other.getMoney() == null : this.getMoney().equals(other.getMoney()))
             && (this.getGmtCreate() == null ? other.getGmtCreate() == null : this.getGmtCreate().equals(other.getGmtCreate()))
             && (this.getGmtModified() == null ? other.getGmtModified() == null : this.getGmtModified().equals(other.getGmtModified()));
     }
@@ -98,10 +87,9 @@ public class ShoppingCart implements Serializable {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((getPkId() == null) ? 0 : getPkId().hashCode());
+        result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
-        result = prime * result + ((getCommodityId() == null) ? 0 : getCommodityId().hashCode());
-        result = prime * result + ((getNumber() == null) ? 0 : getNumber().hashCode());
+        result = prime * result + ((getMoney() == null) ? 0 : getMoney().hashCode());
         result = prime * result + ((getGmtCreate() == null) ? 0 : getGmtCreate().hashCode());
         result = prime * result + ((getGmtModified() == null) ? 0 : getGmtModified().hashCode());
         return result;
@@ -113,10 +101,9 @@ public class ShoppingCart implements Serializable {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", pkId=").append(pkId);
+        sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
-        sb.append(", commodityId=").append(commodityId);
-        sb.append(", number=").append(number);
+        sb.append(", money=").append(money);
         sb.append(", gmtCreate=").append(gmtCreate);
         sb.append(", gmtModified=").append(gmtModified);
         sb.append(", serialVersionUID=").append(serialVersionUID);

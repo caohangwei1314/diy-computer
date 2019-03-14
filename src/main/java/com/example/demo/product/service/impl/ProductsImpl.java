@@ -123,4 +123,20 @@ public class ProductsImpl implements ProductsService {
 //        criteria.andProductsIdEqualTo(productsId);
 //        return
 //    }
+
+    @Override
+    public Products selectByClassIdAndProductId(Long classId,Long productId)
+    {
+        ProductsExample example = new ProductsExample();
+        ProductsExample.Criteria criteria = example.createCriteria();
+        criteria.andClassIdEqualTo(classId);
+        criteria.andProductIdEqualTo(productId);
+        List<Products> productsList= productsMapper.selectByExample(example);
+        if(productsList.size()>0&&productsList!=null)
+        {
+            return productsList.get(0);
+        }else{
+            return null;
+        }
+    }
 }

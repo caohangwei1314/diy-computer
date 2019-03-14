@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.product.mapper.ShoppingCartMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.product.model.ShoppingCart">
+<mapper namespace="com.example.demo.user.mapper.ShoppingCartMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.user.model.ShoppingCart">
     <id column="pk_id" jdbcType="BIGINT" property="pkId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="commodity_id" jdbcType="BIGINT" property="commodityId" />
@@ -81,7 +81,7 @@
   <sql id="Base_Column_List">
     pk_id, user_id, commodity_id, number, gmt_create, gmt_modified
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.product.model.ShoppingCartExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.demo.user.model.ShoppingCartExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -113,13 +113,13 @@
     delete from shopping_cart
     where pk_id = #{pkId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.product.model.ShoppingCartExample">
+  <delete id="deleteByExample" parameterType="com.example.demo.user.model.ShoppingCartExample">
     delete from shopping_cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.product.model.ShoppingCart">
+  <insert id="insert" parameterType="com.example.demo.user.model.ShoppingCart">
     insert into shopping_cart (pk_id, user_id, commodity_id, 
       number, gmt_create, gmt_modified
       )
@@ -127,7 +127,7 @@
       #{number,jdbcType=BIGINT}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.product.model.ShoppingCart">
+  <insert id="insertSelective" parameterType="com.example.demo.user.model.ShoppingCart">
     insert into shopping_cart
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pkId != null">
@@ -170,7 +170,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.product.model.ShoppingCartExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.example.demo.user.model.ShoppingCartExample" resultType="java.lang.Long">
     select count(*) from shopping_cart
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -214,7 +214,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.product.model.ShoppingCart">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.user.model.ShoppingCart">
     update shopping_cart
     <set>
       <if test="userId != null">
@@ -235,7 +235,7 @@
     </set>
     where pk_id = #{pkId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.product.model.ShoppingCart">
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.user.model.ShoppingCart">
     update shopping_cart
     set user_id = #{userId,jdbcType=BIGINT},
       commodity_id = #{commodityId,jdbcType=BIGINT},

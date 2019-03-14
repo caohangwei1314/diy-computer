@@ -32,4 +32,8 @@ public interface AddressMapper {
     int updateByPrimaryKeySelective(Address record);
 
     int updateByPrimaryKey(Address record);
+
+    List<Address> selectByUserId(@Param("limit") Integer limit,
+                                   @Param("offset") Integer offset,
+                                   @Param("user_id") Long userId);
 }

@@ -1,10 +1,10 @@
-package com.example.demo.product.service.impl;
+package com.example.demo.user.service.impl;
 
-import com.example.demo.product.mapper.ShoppingCartMapper;
+import com.example.demo.user.mapper.ShoppingCartMapper;
 import com.example.demo.product.model.Products;
-import com.example.demo.product.model.ShoppingCart;
-import com.example.demo.product.model.ShoppingCartExample;
-import com.example.demo.product.service.ShoppingCartService;
+import com.example.demo.user.model.ShoppingCart;
+import com.example.demo.user.model.ShoppingCartExample;
+import com.example.demo.user.service.ShoppingCartService;
 import com.example.demo.utils.UploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

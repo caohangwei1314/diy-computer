@@ -1,7 +1,9 @@
 package com.example.demo.product.controller;
 
 import com.example.demo.product.model.Chassis;
+import com.example.demo.product.model.Products;
 import com.example.demo.product.service.ChassisService;
+import com.example.demo.product.service.EvaluationService;
 import com.example.demo.product.service.ProductsService;
 import com.example.demo.user.controller.BaseController;
 import com.example.demo.utils.UploadUtil;
@@ -18,9 +20,6 @@ public class ChassisController extends BaseController {
 
     @Autowired
     private ChassisService chassisService;
-
-    @Autowired
-    private ProductsService productsService;
 
     @RequestMapping(method = RequestMethod.POST)
     public Map<String,Object> insert(@RequestBody Chassis chassis, HttpServletRequest request)

@@ -2,12 +2,10 @@ package com.example.demo.user.service.impl;
 
 import com.example.demo.product.mapper.ProductsMapper;
 import com.example.demo.product.model.Products;
+import com.example.demo.user.mapper.ShoppingCartMapper;
+import com.example.demo.user.model.*;
 import com.example.demo.user.mapper.OrderDetailMapper;
 import com.example.demo.user.mapper.OrdersMapper;
-import com.example.demo.user.model.OrderDetailExample;
-import com.example.demo.user.model.Orders;
-import com.example.demo.user.model.OrderDetail;
-import com.example.demo.user.model.OrdersExample;
 import com.example.demo.user.service.OrderService;
 import com.example.demo.utils.PageBean;
 import com.example.demo.utils.UploadUtil;
@@ -26,6 +24,10 @@ public class OrderImpl implements OrderService {
 
     @Autowired
     private ProductsMapper productsMapper;
+
+    @Autowired
+    private ShoppingCartMapper shoppingCartMapper;
+
     @Override
     public int insert(Orders orders)
     {
@@ -36,15 +38,20 @@ public class OrderImpl implements OrderService {
         if(ordersMapper.insertSelective(orders)>0)
         {
             List<OrderDetail> orderDetailList = new ArrayList<>();
-            for(Long productId:orders.getProductsId()){
+            for(ShoppingCart shoppingCart:orders.getShoppingCart()){
                 OrderDetail orderDetail = new OrderDetail();
                 orderDetail.setOrderId(orders.getPkId());
-                orderDetail.setProductId(productId);
+                orderDetail.setProductId(shoppingCart.getCommodityId());
+                orderDetail.setNumber(shoppingCart.getNumber());
+                orderDetail.setTotal(shoppingCart.getTotal());
                 orderDetail.setGmtCreate(date);
                 orderDetail.setGmtModified(date);
                 orderDetailList.add(orderDetail);
             }
             orderDetailMapper.insertBatch(orderDetailList);
+            for(ShoppingCart shoppingCart:orders.getShoppingCart()){
+                shoppingCartMapper.deleteByPrimaryKey(shoppingCart.getPkId());
+            }
             return 1;
         }else{
             return 0;

@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.user.mapper.OrdersMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.user.model.Orders">
-    <id column="pk_id" jdbcType="BIGINT" property="pkId" />
+<mapper namespace="com.example.demo.user.mapper.UsersMoneyMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.user.model.UsersMoney">
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="total" jdbcType="DECIMAL" property="total" />
-    <result column="address_id" jdbcType="BIGINT" property="addressId" />
-    <result column="note" jdbcType="VARCHAR" property="note" />
-    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
-    <result column="deliver_time" jdbcType="TIMESTAMP" property="deliverTime" />
-    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
   </resultMap>
@@ -72,16 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    pk_id, user_id, total, address_id, note, payment_time, deliver_time, status, gmt_create, 
-    gmt_modified
+    id, user_id, money, gmt_create, gmt_modified
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.user.model.OrdersExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.demo.user.model.UsersMoneyExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from orders
+    from users_money
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -100,55 +94,36 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from orders
-    where pk_id = #{pkId,jdbcType=BIGINT}
+    from users_money
+    where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from orders
-    where pk_id = #{pkId,jdbcType=BIGINT}
+    delete from users_money
+    where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.user.model.OrdersExample">
-    delete from orders
+  <delete id="deleteByExample" parameterType="com.example.demo.user.model.UsersMoneyExample">
+    delete from users_money
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.user.model.Orders">
-    insert into orders (pk_id, user_id, total, 
-      address_id, note, payment_time, 
-      deliver_time, status, gmt_create, 
-      gmt_modified)
-    values (#{pkId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{total,jdbcType=BIGINT}, 
-      #{addressId,jdbcType=BIGINT}, #{note,jdbcType=VARCHAR}, #{paymentTime,jdbcType=TIMESTAMP}, 
-      #{deliverTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{gmtCreate,jdbcType=TIMESTAMP}, 
-      #{gmtModified,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.example.demo.user.model.UsersMoney">
+    insert into users_money (id, user_id, money, 
+      gmt_create, gmt_modified)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{money,jdbcType=DECIMAL}, 
+      #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.user.model.Orders" keyProperty="pkId" useGeneratedKeys="true">
-    insert into orders
+  <insert id="insertSelective" parameterType="com.example.demo.user.model.UsersMoney">
+    insert into users_money
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="pkId != null">
-        pk_id,
+      <if test="id != null">
+        id,
       </if>
       <if test="userId != null">
         user_id,
       </if>
-      <if test="total != null">
-        total,
-      </if>
-      <if test="addressId != null">
-        address_id,
-      </if>
-      <if test="note != null">
-        note,
-      </if>
-      <if test="paymentTime != null">
-        payment_time,
-      </if>
-      <if test="deliverTime != null">
-        deliver_time,
-      </if>
-      <if test="status != null">
-        status,
+      <if test="money != null">
+        money,
       </if>
       <if test="gmtCreate != null">
         gmt_create,
@@ -158,29 +133,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="pkId != null">
-        #{pkId,jdbcType=BIGINT},
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
       </if>
-      <if test="total != null">
-        #{total,jdbcType=DECIMAL},
-      </if>
-      <if test="addressId != null">
-        #{addressId,jdbcType=BIGINT},
-      </if>
-      <if test="note != null">
-        #{note,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentTime != null">
-        #{paymentTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deliverTime != null">
-        #{deliverTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=TINYINT},
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
       </if>
       <if test="gmtCreate != null">
         #{gmtCreate,jdbcType=TIMESTAMP},
@@ -190,38 +150,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.user.model.OrdersExample" resultType="java.lang.Long">
-    select count(*) from orders
+  <select id="countByExample" parameterType="com.example.demo.user.model.UsersMoneyExample" resultType="java.lang.Long">
+    select count(*) from users_money
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update orders
+    update users_money
     <set>
-      <if test="record.pkId != null">
-        pk_id = #{record.pkId,jdbcType=BIGINT},
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.userId != null">
         user_id = #{record.userId,jdbcType=BIGINT},
       </if>
-      <if test="record.total != null">
-        total = #{record.total,jdbcType=BIGINT},
-      </if>
-      <if test="record.addressId != null">
-        address_id = #{record.addressId,jdbcType=BIGINT},
-      </if>
-      <if test="record.note != null">
-        note = #{record.note,jdbcType=VARCHAR},
-      </if>
-      <if test="record.paymentTime != null">
-        payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.deliverTime != null">
-        deliver_time = #{record.deliverTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=TINYINT},
+      <if test="record.money != null">
+        money = #{record.money,jdbcType=DECIMAL},
       </if>
       <if test="record.gmtCreate != null">
         gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
@@ -235,44 +180,24 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update orders
-    set pk_id = #{record.pkId,jdbcType=BIGINT},
+    update users_money
+    set id = #{record.id,jdbcType=BIGINT},
       user_id = #{record.userId,jdbcType=BIGINT},
-      total = #{record.total,jdbcType=BIGINT},
-      address_id = #{record.addressId,jdbcType=BIGINT},
-      note = #{record.note,jdbcType=VARCHAR},
-      payment_time = #{record.paymentTime,jdbcType=TIMESTAMP},
-      deliver_time = #{record.deliverTime,jdbcType=TIMESTAMP},
-      status = #{record.status,jdbcType=TINYINT},
+      money = #{record.money,jdbcType=DECIMAL},
       gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.user.model.Orders">
-    update orders
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.user.model.UsersMoney">
+    update users_money
     <set>
       <if test="userId != null">
         user_id = #{userId,jdbcType=BIGINT},
       </if>
-      <if test="total != null">
-        total = #{total,jdbcType=DECIMAL},
-      </if>
-      <if test="addressId != null">
-        address_id = #{addressId,jdbcType=BIGINT},
-      </if>
-      <if test="note != null">
-        note = #{note,jdbcType=VARCHAR},
-      </if>
-      <if test="paymentTime != null">
-        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deliverTime != null">
-        deliver_time = #{deliverTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=TINYINT},
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
       </if>
       <if test="gmtCreate != null">
         gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
@@ -281,19 +206,14 @@
         gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where pk_id = #{pkId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.user.model.Orders">
-    update orders
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.user.model.UsersMoney">
+    update users_money
     set user_id = #{userId,jdbcType=BIGINT},
-      total = #{total,jdbcType=BIGINT},
-      address_id = #{addressId,jdbcType=BIGINT},
-      note = #{note,jdbcType=VARCHAR},
-      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
-      deliver_time = #{deliverTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=TINYINT},
+      money = #{money,jdbcType=DECIMAL},
       gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
       gmt_modified = #{gmtModified,jdbcType=TIMESTAMP}
-    where pk_id = #{pkId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

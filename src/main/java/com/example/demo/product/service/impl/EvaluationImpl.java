@@ -1,7 +1,11 @@
 package com.example.demo.product.service.impl;
 
 import com.example.demo.product.mapper.EvaluationMapper;
+import com.example.demo.product.mapper.ProductsMapper;
 import com.example.demo.product.model.Evaluation;
+import com.example.demo.product.model.EvaluationExample;
+import com.example.demo.product.model.Products;
+import com.example.demo.product.model.ProductsExample;
 import com.example.demo.product.service.EvaluationService;
 import com.example.demo.utils.PageBean;
 import com.example.demo.utils.UploadUtil;
@@ -16,6 +20,9 @@ public class EvaluationImpl implements EvaluationService {
 
     @Autowired
     private EvaluationMapper evaluationMapper;
+
+    @Autowired
+    private ProductsMapper productsMapper;
 
     @Override
     public int insert(Evaluation evaluation)
@@ -56,5 +63,11 @@ public class EvaluationImpl implements EvaluationService {
     public int delete(Long id)
     {
         return evaluationMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public long count(Long classId,Long productId)
+    {
+        return evaluationMapper.count(classId,productId);
     }
 }

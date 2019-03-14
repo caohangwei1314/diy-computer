@@ -218,11 +218,12 @@
   </update>
     <insert id="insertBatch"  parameterType="java.util.List">
         INSERT INTO order_detail
-        ( order_id, product_id, gmt_create, gmt_modified )
+        ( order_id, product_id, number,total,gmt_create, gmt_modified )
         VALUES
         <foreach collection="list" item="item" index="index" separator="," >
             (
             #{item.orderId,jdbcType=BIGINT}, #{item.productId,jdbcType=BIGINT},
+          #{item.number,jdbcType=BIGINT}, #{item.total,jdbcType=DECIMAL},
             #{item.gmtCreate,jdbcType=TIMESTAMP}, #{item.gmtModified,jdbcType=TIMESTAMP}
             )
         </foreach>

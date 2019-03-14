@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class UploadUtil {
 
-    public static final String SERVICE_PRODUCTS_PATH = "E:\\diy-image\\";
+    public static final String SERVICE_PRODUCTS_PATH = "E:\\diy-image\\";//E:\\diy-image\\/work/diy-image/
 
     private String dataPrix;
 

@@ -1,9 +1,8 @@
-package com.example.demo.product.controller;
+package com.example.demo.user.controller;
 
 import com.example.demo.product.model.Products;
-import com.example.demo.product.model.ShoppingCart;
-import com.example.demo.product.service.ShoppingCartService;
-import com.example.demo.user.controller.BaseController;
+import com.example.demo.user.model.ShoppingCart;
+import com.example.demo.user.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +25,7 @@ public class ShoppingCartController extends BaseController {
         ShoppingCart shoppingCarted = shoppingCartService.selectByUidAndCid(userId,shoppingCart.getCommodityId());
         if(shoppingCarted!=null)
         {
-            shoppingCarted.setNumber(shoppingCarted.getNumber()+1l);
+            shoppingCarted.setNumber(shoppingCarted.getNumber()+shoppingCart.getNumber());
             if(shoppingCartService.update(shoppingCarted)>0)
             {
                 msg.put("code",1);

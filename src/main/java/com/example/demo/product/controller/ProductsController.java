@@ -48,6 +48,8 @@ public class ProductsController extends BaseController {
     @Autowired
     private SsdService ssdService;
 
+    @Autowired
+    private EvaluationService evaluationService;
 //    @RequestMapping(method = RequestMethod.POST)
 //    public Map<String,Object> insert(@RequestBody Products products, HttpServletRequest request)
 //    {
@@ -129,6 +131,7 @@ public class ProductsController extends BaseController {
             Long productId = products.getProductId();
             if(products!=null)
             {
+                Long eNumber=evaluationService.count(classId,productId);
                 if(classId==1l) {
                     msg.put("data",chassisService.select(productId));
                 }else if(classId==2l){
@@ -152,6 +155,8 @@ public class ProductsController extends BaseController {
                 }
                 msg.put("code",1);
                 msg.put("msg","成功");
+                msg.put("evaluation",eNumber);
+                msg.put("salesNumber",products.getSalesNumber());
             }else{
                 msg.put("code","0");
                 msg.put("msg","该商品已被删除");

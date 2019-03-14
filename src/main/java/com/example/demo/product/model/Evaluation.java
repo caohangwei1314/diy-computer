@@ -3,6 +3,7 @@ package com.example.demo.product.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -28,6 +29,7 @@ public class Evaluation implements Serializable {
 
     @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
     private Date gmtModified;
+
 
     private static final long serialVersionUID = 1L;
 

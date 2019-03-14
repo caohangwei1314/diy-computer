@@ -1,7 +1,7 @@
-package com.example.demo.product.mapper;
+package com.example.demo.user.mapper;
 
-import com.example.demo.product.model.Collect;
-import com.example.demo.product.model.CollectExample;
+import com.example.demo.user.model.Collect;
+import com.example.demo.user.model.CollectExample;
 import java.util.List;
 
 import com.example.demo.product.model.Products;
@@ -34,7 +34,9 @@ public interface CollectMapper {
 
     int updateByPrimaryKey(Collect record);
 
-    List<Products> selectDetail(Long userId);
+    List<Products> selectDetail(@Param("limit") Integer limit,
+                                @Param("offset") Integer offset,
+                                @Param("user_id") Long userId);
 
     Collect selectByUidAndCid(@Param("userId") Long userId,@Param("cId") Long cId);
 }

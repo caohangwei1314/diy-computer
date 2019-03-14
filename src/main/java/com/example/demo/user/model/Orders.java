@@ -1,12 +1,11 @@
 package com.example.demo.user.model;
 
-import com.example.demo.product.model.Products;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author 
@@ -16,7 +15,7 @@ public class Orders implements Serializable {
 
     private Long userId;
 
-    private Long total;
+    private BigDecimal total;
 
     private Long addressId;
 
@@ -42,7 +41,7 @@ public class Orders implements Serializable {
 
     private List<Long> productsId;
 
-    private List<Products> orderDetails;
+    private List<ShoppingCart> shoppingCarts;
 
     private static final long serialVersionUID = 1L;
 
@@ -62,11 +61,11 @@ public class Orders implements Serializable {
         this.userId = userId;
     }
 
-    public Long getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(Long total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
 
@@ -134,12 +133,12 @@ public class Orders implements Serializable {
         this.productsId = productsId;
     }
 
-    public List<Products> getOrderDetails() {
-        return orderDetails;
+    public List<ShoppingCart> getShoppingCart() {
+        return shoppingCarts;
     }
 
-    public void setOrderDetails(List<Products> productsList) {
-        this.orderDetails = productsList;
+    public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
+        this.shoppingCarts = shoppingCarts;
     }
 
     @Override

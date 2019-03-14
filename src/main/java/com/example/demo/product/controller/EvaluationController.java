@@ -1,7 +1,9 @@
 package com.example.demo.product.controller;
 
 import com.example.demo.product.model.Evaluation;
+import com.example.demo.product.model.Products;
 import com.example.demo.product.service.EvaluationService;
+import com.example.demo.product.service.ProductsService;
 import com.example.demo.user.controller.BaseController;
 import com.example.demo.user.model.Users;
 import com.example.demo.user.service.UsersService;
@@ -11,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +26,9 @@ public class EvaluationController extends BaseController {
 
     @Autowired
     private UsersService usersService;
+
+    @Autowired
+    private ProductsService productsService;
 
     @RequestMapping(method = RequestMethod.POST)
     public Map<String,Object> insert(@RequestBody Evaluation evaluation, HttpServletRequest request)
@@ -54,9 +60,9 @@ public class EvaluationController extends BaseController {
         Long productId = null;
         String orderby = "gmt_create";
         String desc = null;
-        if(conditions.get("productId")!=null){
-            if(conditions.get("productId").toString()!="") {
-                classId = Long.parseLong(conditions.get("productId").toString());
+        if(conditions.get("productsId")!=null){
+            if(conditions.get("productsId").toString()!="") {
+                productId = Long.parseLong(conditions.get("productsId").toString());
             }
         }
         if(conditions.get("classId")!=null){
@@ -74,12 +80,19 @@ public class EvaluationController extends BaseController {
                 desc = conditions.get("desc").toString();
             }
         }
-        PageBean products = evaluationService.select(limit,page,productId,classId,orderby,desc);
-        if(products!=null)
+        PageBean evaluation = evaluationService.select(limit,page,productId,classId,orderby,desc);
+        Products products = productsService.selectByClassIdAndProductId(productId,classId);
+        if(evaluation!=null)
         {
             msg.put("code",1);
             msg.put("msg","成功");
-            msg.put("data",products);
+            msg.put("data",evaluation);
+            if(products!=null)
+            {
+                msg.put("points",products.getPoints());
+            }else{
+                msg.put("points",0);
+            }
         }else{
             msg.put("code",0);
             msg.put("msg","失败");
@@ -92,11 +105,13 @@ public class EvaluationController extends BaseController {
     {
         msg.clear();
         Evaluation evaluation = evaluationService.selectByPrimaryKey(evaluationId);
+        Products products=productsService.selectByClassIdAndProductId(evaluation.getClassId(),evaluation.getProductsId());
         if(evaluation!=null)
         {
             msg.put("code",1);
             msg.put("msg","成功");
             msg.put("data",evaluation);
+            msg.put("points",products.getPoints());
         }else{
             msg.put("code",0);
             msg.put("msg","失败");

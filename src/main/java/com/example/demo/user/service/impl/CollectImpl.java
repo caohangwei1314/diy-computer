@@ -1,10 +1,11 @@
-package com.example.demo.product.service.impl;
+package com.example.demo.user.service.impl;
 
-import com.example.demo.product.mapper.CollectMapper;
-import com.example.demo.product.model.Collect;
-import com.example.demo.product.model.CollectExample;
+import com.example.demo.user.mapper.CollectMapper;
+import com.example.demo.user.model.Collect;
+import com.example.demo.user.model.CollectExample;
 import com.example.demo.product.model.Products;
-import com.example.demo.product.service.CollectService;
+import com.example.demo.user.service.CollectService;
+import com.example.demo.utils.PageBean;
 import com.example.demo.utils.UploadUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,17 +60,17 @@ public class CollectImpl implements CollectService {
         return collectMapper.deleteByExample(collectExample);
     }
 
-    @Override
-    public List<Products> selectDetail(Long userId)
-    {
-        List<Products> productsList =collectMapper.selectDetail(userId);
-        UploadUtil uploadUtil = new UploadUtil();
-        for(Products products:productsList)
-        {
-            products.setImage(uploadUtil.toBase64(products.getImage()));
-        }
-        return productsList;
-    }
+//    @Override
+//    public List<Products> selectDetail(Long userId)
+//    {
+//        List<Products> productsList =collectMapper.selectDetail(userId);
+//        UploadUtil uploadUtil = new UploadUtil();
+//        for(Products products:productsList)
+//        {
+//            products.setImage(uploadUtil.toBase64(products.getImage()));
+//        }
+//        return productsList;
+//    }
 
     @Override
     public long countByUserId(Long userId)
@@ -78,5 +79,27 @@ public class CollectImpl implements CollectService {
         CollectExample.Criteria criteria = collectExample.createCriteria();
         criteria.andUserIdEqualTo(userId);
         return collectMapper.countByExample(collectExample);
+    }
+
+    @Override
+    public PageBean selectPage(Integer limit, Integer page, Long userId)
+    {
+        CollectExample collectExample = new CollectExample();
+        CollectExample.Criteria criteria = collectExample.createCriteria();
+        criteria.andUserIdEqualTo(userId);
+        int count = (int) collectMapper.countByExample(collectExample);
+        if(count>0){
+            PageBean pageBean = new PageBean(page,count,limit);
+            List<Products> productsList=collectMapper.selectDetail(limit,pageBean.getStart(),userId);
+            UploadUtil uploadUtil = new UploadUtil();
+            for(Products products:productsList)
+            {
+                products.setImage(uploadUtil.toBase64(products.getImage()));
+            }
+            pageBean.setList(productsList);
+            return pageBean;
+        }else{
+            return null;
+        }
     }
 }

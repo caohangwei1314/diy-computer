@@ -15,4 +15,5 @@ public interface EvaluationService {
 
     Evaluation selectByPrimaryKey(Long evaluationId);
 
+    long count(Long classId,Long productId);
 }

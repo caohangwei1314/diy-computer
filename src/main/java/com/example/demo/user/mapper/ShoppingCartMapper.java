@@ -1,8 +1,8 @@
-package com.example.demo.product.mapper;
+package com.example.demo.user.mapper;
 
 import com.example.demo.product.model.Products;
-import com.example.demo.product.model.ShoppingCart;
-import com.example.demo.product.model.ShoppingCartExample;
+import com.example.demo.user.model.ShoppingCart;
+import com.example.demo.user.model.ShoppingCartExample;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;

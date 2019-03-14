@@ -1,9 +1,11 @@
 package com.example.demo.user.controller;
 
-import com.example.demo.product.service.ShoppingCartService;
+import com.example.demo.user.service.ShoppingCartService;
 import com.example.demo.user.model.Users;
+import com.example.demo.user.model.UsersMoney;
 import com.example.demo.user.service.UsersService;
 import com.example.demo.utils.JwtUtil;
+import com.example.demo.utils.SHA2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @RestController
@@ -115,4 +116,80 @@ public class UsersController extends BaseController{
         return msg;
     }
 
+    @RequestMapping(value = "/payment",method = RequestMethod.POST)
+    public Map<String,Object> payment(@RequestBody UsersMoney usersMoney,
+                                      HttpServletRequest request) {
+        msg.clear();
+        Long usersId=Long.parseLong(request.getAttribute("userId").toString());
+        try{
+            if(usersService.updateMoney(usersMoney.getMoney(),usersId)>0)
+            {
+                msg.put("code","1");
+                msg.put("msg","成功");
+            }else{
+                msg.put("code","0");
+                msg.put("msg","失败");
+            }
+        }catch (Exception e){
+            msg.put("code","0");
+            msg.put("msg",e.getMessage());
+        }
+        return msg;
+    }
+
+
+    @RequestMapping(value = "/payment",method = RequestMethod.GET)
+    public Map<String,Object> selectMoney(HttpServletRequest request) {
+        msg.clear();
+        Long usersId=Long.parseLong(request.getAttribute("userId").toString());
+        try{
+            UsersMoney usersMoney = usersService.selectMoney(usersId);
+            if(usersMoney!=null)
+            {
+                msg.put("code","1");
+                msg.put("msg","成功");
+                msg.put("data",usersMoney.getMoney());
+            }else{
+                msg.put("code","0");
+                msg.put("msg","失败");
+            }
+        }catch (Exception e){
+            msg.put("code","0");
+            msg.put("msg",e.getMessage());
+        }
+        return msg;
+    }
+
+    @RequestMapping(method = RequestMethod.PATCH)
+    public Map<String, Object> RestPassword (@RequestBody Map<String,Object> conditions,
+                                             HttpServletRequest request){
+        msg.clear();
+        try{
+            Long userId=Long.parseLong(request.getAttribute("userId").toString());
+            String password=conditions.get("password").toString();
+            String repassword = conditions.get("repassword").toString();
+            String findPassword = usersService.findPassword(userId);
+            if(findPassword.equals(SHA2.SHA256(password)))
+            {
+                Users findUser = new Users();
+                findUser.setPkId(userId);
+                findUser.setPassword(SHA2.SHA256(repassword));
+                if(usersService.updateByPrimaryKeySelective(findUser)!=null)
+                {
+                    msg.put("code","1");
+                    msg.put("msg","成功");
+                }else{
+                    msg.put("code","0");
+                    msg.put("msg","失败");
+                }
+            }else{
+                msg.put("code","0");
+                msg.put("msg","原密码错误");
+            }
+        }catch (Exception e){
+            msg.put("code","0");
+            msg.put("msg",e.getMessage());
+        }
+        return msg;
+    }
 }

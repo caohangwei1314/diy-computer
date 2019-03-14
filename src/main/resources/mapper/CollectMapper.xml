@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.product.mapper.CollectMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.product.model.Collect">
+<mapper namespace="com.example.demo.user.mapper.CollectMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.user.model.Collect">
     <id column="pk_id" jdbcType="BIGINT" property="pkId" />
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="commodity_id" jdbcType="BIGINT" property="commodityId" />
@@ -80,7 +80,7 @@
   <sql id="Base_Column_List">
     pk_id, user_id, commodity_id, gmt_create, gmt_modified
   </sql>
-  <select id="selectByExample" parameterType="com.example.demo.product.model.CollectExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.demo.user.model.CollectExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -112,19 +112,19 @@
     delete from collect
     where pk_id = #{pkId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.demo.product.model.CollectExample">
+  <delete id="deleteByExample" parameterType="com.example.demo.user.model.CollectExample">
     delete from collect
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.demo.product.model.Collect">
+  <insert id="insert" parameterType="com.example.demo.user.model.Collect">
     insert into collect (pk_id, user_id, commodity_id, 
       gmt_create, gmt_modified)
     values (#{pkId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{commodityId,jdbcType=BIGINT}, 
       #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.demo.product.model.Collect">
+  <insert id="insertSelective" parameterType="com.example.demo.user.model.Collect">
     insert into collect
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="pkId != null">
@@ -161,7 +161,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.demo.product.model.CollectExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.example.demo.user.model.CollectExample" resultType="java.lang.Long">
     select count(*) from collect
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -201,7 +201,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.product.model.Collect">
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.user.model.Collect">
     update collect
     <set>
       <if test="userId != null">
@@ -219,7 +219,7 @@
     </set>
     where pk_id = #{pkId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.demo.product.model.Collect">
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.user.model.Collect">
     update collect
     set user_id = #{userId,jdbcType=BIGINT},
       commodity_id = #{commodityId,jdbcType=BIGINT},
@@ -231,7 +231,15 @@
     select b.*
     from collect a
     inner join products b on a.commodity_id=b.pk_id
-    where user_id = #{userId,jdbcType=BIGINT}
+    where user_id = #{user_id,jdbcType=BIGINT}
+      <if test="limit != null">
+          <if test="offset != null">
+              limit ${offset}, ${limit}
+          </if>
+          <if test="offset == null">
+              limit ${limit}
+          </if>
+      </if>
   </select>
   <select id="selectByUidAndCid" resultMap="BaseResultMap">
     select
